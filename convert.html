@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Asian Converter</title>
+		<script>
+			function Convert () {
+				document.getElementById("convert_result").innerHTML = document.getElementById("input").value.replace(/l/g, "œ").replace(/L/g, "Œ").replace(/r/g, "l").replace(/R/g, "L").replace(/œ/g, "r").replace(/Œ/g, "R")
+				return false
+			}
+		</script>
+                <link type="text/css" rel="stylesheet" href="main.css" />
+	</head>
+	<body>
+		<h1>Convert to Asian!</h1>
+		<textarea id="input" cols="80" rows="20"></textarea>
+		<input type="button" value="Convert!" onclick="Convert()"></input>
+		<div id="convert_result"></div>
+	</body>
+</html>

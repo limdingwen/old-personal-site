@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>Convert to Pokespeak (Pikachu edition)!</title>
+        <script>
+            function convert() {
+                var dictionary = {
+                
+"a": "pī",
+"b": "pí",
+"c": "pî",
+"d": "pì",
+"e": "kā",
+"f": "ká",
+"g": "kâ",
+"h": "kà",
+"i": "chū",
+"j": "chú",
+"k": "chû",
+"l": "chù",
+"m": "pikā",
+"n": "piká",
+"o": "pikâ",
+"p": "pikà",
+"q": "pichū",
+"r": "pichú",
+"s": "pichû",
+"t": "pichù",
+"u": "kachū",
+"v": "kachú",
+"w": "kachû",
+"x": "kachù",
+"y": "pikachū",
+"z": "pikachú"
+
+                };
+
+                var area = document.getElementById("area");
+                var converted = document.getElementById("converted");
+
+                var input = area.value;
+                var output = "";
+
+                for (var i = 0; i < input.length; i++) {
+                    var isUpperCase = (input.charAt(i) != input.charAt(i).toLowerCase());
+                    
+                    if (dictionary[input.charAt(i).toLowerCase()] != undefined) {
+                        if (isUpperCase) {
+                            output = output + dictionary[input.charAt(i).toLowerCase()].toUpperCase();
+                        }
+                        else {
+                            output = output + dictionary[input.charAt(i).toLowerCase()].toLowerCase();
+                        }
+                    }
+                    else {
+                        output = output + input.charAt(i);
+                    }
+                }
+
+                converted.value = output;
+                converted.select();
+            }
+        </script>
+        <link rel="stylesheet" type="text/css" href="main.css">
+    <body>
+        <p><a href="index.html">Back to my home page for more fun! :D</a></p>
+        <p><h1>Pokespeak Translator! (Pikachu edition!)</h1></p>
+        <p><b>Known issues</b>: Sentence starting with a upper-case letter would have more letters upper-cased. Currently translation is one-way only, from Humanspeak to Pokespeak.</p>
+        <p><h2>Know Pokespeak!</h2></p>
+        <p>Sounds: ā (neutral), á (high), â (low-high) [couldn't find an appropriate symbol], à (low)</p>
+        <p>See all letter-to-letter conversions <a href="pokespeak-pikachu-dictionary.txt">here</a>!</p>
+        <p>Example: Hi = Kàchū, kàchū or: KÀchū, depending on whether sentence-start is considered or just considered to be an upper-cased (louder) sound. When spoken, it doesn't matter. (This translator translates into the third dialect) The symbol is positioned above the final Humanspeak-character for each Pokespeak-character and thus divides all Pokespeak-humanspeak-alphabet-representations.</p>
+        <p></p>
+        <p><h2>Convert!</h2></p>
+        <p><b>Input here:</b></p>
+        <p><textarea id="area" rows="4" cols="60" style="font-size:24px"></textarea></p>
+        <p><input type="button" value="Convert!" onclick="convert()" style="font-size:64px; width:300px; height: 300px;"></input></p>
+        <p><b>Converted:</b></p>
+        <p><textarea readonly id="converted" rows="4" cols="60" style="font-size:24px"></textarea></p>
+</html>

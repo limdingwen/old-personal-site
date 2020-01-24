@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			var operators = new Array()
+			var result = 0
+
+			operators[0] = "+"
+			operators[1] = "-"
+			operators[2] = "*"
+			operators[3] = "/"
+
+			for (var b1 = -1; b1 < 3; b1++)
+				for (var b2 = 3; b2 > b1; b2--)
+					for (var i = 0; i < 4; i++)
+						for (var j = 0; j < 4; j++)
+							for (var k = 0; k < 4; k++)
+							{
+								var command = "result = " + 
+									((b1 == 0) ? "(" : "") + "10" + operators[i] +
+									((b1 == 1) ? "(" : "") + "10" + ((b2 == 1 && b1 != -1) ? ")" : "") + operators[j] +
+									((b1 == 2) ? "(" : "") + "10" + ((b2 == 2 && b1 != -1) ? ")" : "") + operators[k]
+									 + "10" + ((b2 == 3 && b1 != -1) ? ")" : "")
+
+								document.write("Doing test " + b1 + ", " + b2 + ", " + i + ", " + j + ", " + k + ": "
+								+ command)
+
+								eval(command)
+								if (result == 4)
+									alert(command)
+
+								document.write(" = " + result + "<br>")
+							}
+
+			document.write("Ok." + "<br>")
+		</script>
+                <link type="text/css" rel="stylesheet" href="main.css" />
+	</head>
+</html>
